@@ -23,8 +23,13 @@ function Register() {
       [e.target.name]: e.target.value.trim(),
     });
 
-    ValidationManager(e.target.name, e.target.value, validData, setValidData);
-    console.log(validData);
+    ValidationManager(
+      e.target.name,
+      e.target.value,
+      validData,
+      setValidData,
+      userData
+    );
   };
 
   const handlePostData = (e) => {
@@ -54,13 +59,13 @@ function Register() {
           placeholder="Confirm Password"
         />
         <input
-          // disabled={
-          //   validation.matchingPasswords &&
-          //   validation.validEmail &&
-          //   validation.validPassword
-          //     ? false
-          //     : true
-          // }
+          disabled={
+            validData.validEmail &&
+            validData.validPassword &&
+            validData.matchingPasswords
+              ? false
+              : true
+          }
           onClick={handlePostData}
           type="submit"
           value="Submit"
