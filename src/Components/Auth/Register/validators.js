@@ -35,7 +35,7 @@ const ValidationManager = (currentInput, currentValue, currentValidDataState, se
 ////////////////////////////////////// 
 
 const validatePasswordLength = (currentValue) => {
-    if (currentValue.trim().length > 8) {
+    if (currentValue.trim().length >= 8) {
         return true;
     } else return false;
 };
